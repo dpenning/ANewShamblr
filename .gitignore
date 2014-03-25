@@ -34,3 +34,7 @@ nosetests.xml
 .mr.developer.cfg
 .project
 .pydevproject
+
+API_KEY_LIST.data
+SET_SAVE.data
+QUEUE_SAVE.data
