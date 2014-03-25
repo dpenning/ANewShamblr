@@ -405,10 +405,10 @@ def get_api_key_from_frontier(host,port):
 if __name__ == "__main__":
 
 	host = 'helix.vis.uky.edu'
-	port = 66666
+	port = 6666
 
 	db_host = '172.31.40.208'
-	db_port = 66667
+	db_port = 6667
 
 	# first try to get the api key from frontier
 

@@ -23,7 +23,7 @@ if os.path.isfile('API_KEY_LIST.data'):
 
 
 host = ""
-port = 66666
+port = 6666
 
 def worker(conn):
 	try:

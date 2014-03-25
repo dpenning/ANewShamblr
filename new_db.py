@@ -8,7 +8,7 @@ import os
 import time
 
 host = ""
-port = 66667
+port = 6667
 
 def worker(conn):
 	try:
@@ -166,6 +166,7 @@ if __name__ == "__main__":
 		try:
 			s.bind((host, port))
 		except Exception as e:
+			print (e)
 			sys.exit()
 		s.listen(10)
 		
@@ -174,7 +175,7 @@ if __name__ == "__main__":
 			t = threading.Thread(target=worker, args = (conn,))
 			t.start()
 	except Exception as e:
-		"do nothing"
+		print (e)
 	finally:
 		print ("closing_socket")
 		s.close()
