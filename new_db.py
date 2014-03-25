@@ -8,7 +8,7 @@ import os
 import time
 
 host = ""
-port = 8889
+port = 66667
 
 def worker(conn):
 	try:
