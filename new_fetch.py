@@ -170,7 +170,6 @@ def get_blogs_from_notes(blog_name,api_key,offset=None,limit=None):
 			if "posts" in x["response"]:
 				for a in x["response"]["posts"]:
 					post = form_post(a)
-					print(post)
 					if post != False:
 						posts.append(post)
 						if "notes" in a:
@@ -185,7 +184,6 @@ def get_blogs_from_notes(blog_name,api_key,offset=None,limit=None):
 		return False,[],[],[],[]
 
 	# return list of unique blogs in a list
-	print (note_list)
 	return True,list(blogs),list(links),list(posts),list(note_list)
 
 #FIXED
