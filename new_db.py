@@ -67,6 +67,8 @@ def worker(conn):
 					for a in post_list:
 						try:
 							t = time.gmtime(int(a["timestamp"]))
+							if a["title"] != None:
+								a["title"] = a["title"][:100]
 							cursor.execute("insert into post values(%s,%s,%s,%s,%s,%s,%s,%s);",
 									(	a["post_id"],
 										a["post_link"],
@@ -80,7 +82,7 @@ def worker(conn):
 								)
 							db_conn.commit()
 						except Exception as e:
-							print ("sdfsdfdsf" , str(e))
+							print ("DB Fail - ",e)
 							db_conn.rollback()
 							pass
 						if "tags" in a:
@@ -127,7 +129,6 @@ def worker(conn):
 								)
 							db_conn.commit()
 						except Exception as e:
-							print ("sdfsdfdsf" , str(e))
 							db_conn.rollback()
 							pass
 					db_conn.commit()
@@ -156,7 +157,6 @@ def worker(conn):
 			send_data = {"worked":False,"request_type":"NOT RECOGNIZED",}
 		#send the message
 		conn.send(str.encode(json.dumps(send_data)))
-		conn.shutdown(socket.SHUT_WR)
 	finally:
 		conn.close()
 
